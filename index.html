@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alb-Eng | TGA Engineering</title>
+    <link rel="icon" type="image/png" href="ICON_LOGO_NEU_2026.png">
+    <link rel="apple-touch-icon" href="ICON_LOGO_NEU_2026.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -23,21 +25,46 @@
             --accent-green: #00e676;
             --border-light: rgba(255, 255, 255, 0.08);
             --glow: cubic-bezier(0.15, 0.83, 0.66, 1);
+            
+        }
+        /* Automatisches System-Theme-Matching */
+        @media (prefers-color-scheme: light) {
+            body { /* Hier wird nichts erzwungen, damit JS die Kontrolle behält */ }
         }
 
-        /* LIGHT MODE OVERRIDES */
+
+        /* --- 1. LIGHT MODE BASIS (Macht den Rest der Seite hell) --- */
         body.light-mode {
             --bg-grad-1: #f0f2f5;
             --bg-grad-2: #e2e8f0;
             --bg-grad-3: #ffffff;
-            
             --bg-card: rgba(255, 255, 255, 0.8);
             --bg-contact: rgba(233, 236, 239, 0.8);
             --bg-footer: #111; 
-            
             --text-main: #111111;
             --text-muted: #495057;
             --border-light: rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- 2. NAV BLEIBT IMMER DUNKEL --- */
+        body.light-mode nav {
+            background: rgba(18, 22, 32, 0.9) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+        body.light-mode .nav-links button,
+        body.light-mode .lang-switch button {
+            color: #8892b0 !important;
+        }
+        body.light-mode .nav-links button:hover,
+        body.light-mode .nav-links button.active {
+            color: #00e676 !important;
+        }
+        body.light-mode .lang-switch button.active,
+        body.light-mode .theme-btn {
+            color: #f4f4f9 !important;
+        }
+        body.light-mode .theme-btn {
+            border-color: rgba(255, 255, 255, 0.08) !important;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -109,7 +136,7 @@
         .theme-btn:hover { border-color: var(--accent-green); }
 
         /* Fake Multi-Page Logik */
-        .page-section { display: none; animation: fadeIn 0.6s ease-out forwards; min-height: calc(100vh - 100px); }
+        .page-section { display: none; animation: fadeIn 0.6s ease-out forwards; min-height: 100vh; padding-bottom: 50px; }
         .page-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -137,6 +164,7 @@
 
         /* Über uns */
         .about-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        @media (max-width: 900px) { .about-wrapper { text-align: center; } }
         .about-text p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
         
         .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
@@ -236,7 +264,7 @@
 
         @media (max-width: 900px) {
             nav { flex-direction: column; gap: 15px; padding: 15px 5%; }
-            body { padding-top: 140px; }
+            body { padding-top: 180px; }
             .about-wrapper, .career-wrapper, .contact-wrapper { grid-template-columns: 1fr; }
             .cookie-banner { bottom: 20px; left: 5%; right: 5%; max-width: 90%; }
         }
@@ -245,7 +273,7 @@
 <body>
 
     <nav>
-        <img src="Gemini_LOGO_ALB_ENG.png" alt="Alb-Eng Logo" class="logo-img" onclick="navTo('home')">
+        <img src="LOGO_NEU_2026.png" alt="Alb-Eng Logo" class="logo-img" id="nav-logo" onclick="navTo('home')">
         
         <div class="nav-links">
             <button id="nav-home" class="nav-btn active" onclick="navTo('home')">Start</button>
@@ -319,7 +347,7 @@
                 <div class="contact-info">
                     <h2 id="con-title">Kontakt</h2>
                     <p id="con-text">Lassen Sie uns über Ihr nächstes Projekt sprechen.</p>
-                    <p style="color: var(--accent-green); margin-top: 30px; font-weight: 600;">khaledalbosn1@gmail.com</p>
+                    <p style="color: var(--accent-green); margin-top: 30px; font-weight: 600;">info@alb-eng.de</p>
                 </div>
                 <div>
                     <form action="https://formsubmit.co/khaledalbosn1@gmail.com" method="POST" class="contact-form">
@@ -339,7 +367,7 @@
                 <h3>Angaben gemäß § 5 TMG</h3>
                 <p>Alb-Eng Ingenieurbüro<br>Musterstraße 1<br>10115 Berlin</p>
                 <h3>Kontakt</h3>
-                <p>E-Mail: khaledalbosn1@gmail.com</p>
+                <p>E-Mail: info@alb-eng.de</p>
                 <br>
                 <p><strong>Hinweis:</strong> Dies ist aktuell ein Portfolio- und Studienprojekt. Es werden noch keine kommerziellen Dienstleistungen angeboten.</p>
             </div>
@@ -360,7 +388,7 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-logo">
-                <img src="Gemini_LOGO_ALB_ENG.png" alt="Logo">
+                <img src="LOGO_NEU_2026.png" alt="Logo">
                 <p id="foot-desc">Ingenieurbüro für Technische Gebäudeausrüstung.</p>
             </div>
             <div class="footer-col">
@@ -408,6 +436,14 @@
     </div>
 
     <script>
+       // Beim Laden der Seite prüfen, was das System will
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+            document.body.classList.remove('light-mode');
+        } else {
+            document.body.classList.add('light-mode');
+        }
+
         function toggleTheme() {
             document.body.classList.toggle('light-mode');
             const icon = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
