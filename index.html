@@ -275,11 +275,22 @@
         .social-icons a:hover { border-color: var(--accent-green); color: var(--accent-green); transform: translateY(-3px); }
         .social-icons svg { width: 16px; height: 16px; fill: currentColor; }
 
-        @media (max-width: 900px) {
+       @media (max-width: 900px) {
             nav { flex-direction: column; gap: 15px; padding: 15px 5%; }
             body { padding-top: 180px; }
             .about-wrapper, .career-wrapper, .contact-wrapper { grid-template-columns: 1fr; }
+            .about-text p { text-align: center; } 
             .cookie-banner { bottom: 20px; left: 5%; right: 5%; max-width: 90%; }
+        }
+        /* Schriftgröße auf Monitoren anheben */
+        @media (min-width: 900px) {
+            p, .card p, .about-text p, .legal-text p {
+                font-size: 1.15rem !important; 
+                line-height: 1.8;
+            }
+            .nav-links button, .btn-primary {
+                font-size: 1.05rem;
+            }
         }
     </style>
 </head>
