@@ -276,11 +276,27 @@
         .social-icons a:hover { border-color: var(--accent-green); color: var(--accent-green); transform: translateY(-3px); }
         .social-icons svg { width: 16px; height: 16px; fill: currentColor; }
 
-       @media (max-width: 900px) {
+@media (max-width: 900px) {
             nav { flex-direction: column; gap: 15px; padding: 15px 5%; }
-            body { padding-top: 180px; }
-            .about-wrapper, .career-wrapper, .contact-wrapper { grid-template-columns: 1fr; }
-            .about-text p { text-align: center; } 
+            body { padding-top: 200px; }
+            
+            /* FIX 1: Weniger Seitenabstand auf Handys, damit Kacheln & Text mittig Platz haben */
+            .content-padding { padding: 50px 5% !important; } 
+            
+            /* FIX 2: Den Text "Wir sind..." absolut mittig setzen */
+            .about-text p { text-align: center !important; } 
+            
+            /* FIX 3: Das Raster für die 4 Kacheln auf dem Handy perfekt zentrieren */
+            .about-wrapper { grid-template-columns: 1fr; gap: 35px; }
+            .metrics-grid { 
+                grid-template-columns: 1fr 1fr !important; 
+                gap: 15px !important; 
+                margin-top: 25px !important; 
+                width: 100% !important;
+            }
+            .metric-card { padding: 20px 10px !important; }
+
+            .career-wrapper, .contact-wrapper { grid-template-columns: 1fr; }
             .cookie-banner { bottom: 20px; left: 5%; right: 5%; max-width: 90%; }
         }
         /* Schriftgröße auf Monitoren anheben */
