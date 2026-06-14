@@ -475,16 +475,45 @@
             document.getElementById('theme-btn').innerText = icon;
         }
 
-        function navTo(pageId) {
+// Die neue navTo-Funktion, die den Browser-Verlauf füttert
+        function navTo(pageId, pushState = true) {
             document.querySelectorAll('.page-section').forEach(page => page.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
             
-            document.getElementById('page-' + pageId).classList.add('active');
+            const targetPage = document.getElementById('page-' + pageId);
+            if (!targetPage) return;
+
+            targetPage.classList.add('active');
             let activeBtn = document.getElementById('nav-' + pageId.substring(0,3));
             if(activeBtn) activeBtn.classList.add('active');
             
+            // Verlaufs-Eintrag im Browser erzeugen, wenn gewünscht
+            if (pushState) {
+                history.pushState({ pageId: pageId }, "", "#" + pageId);
+            }
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Reagiert auf den "Zurück"- und "Vorwärts"-Button des Browsers
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.pageId) {
+                navTo(event.state.pageId, false);
+            } else {
+                navTo('home', false);
+            }
+        });
+
+        // Prüft beim ersten Laden der Seite, ob ein Link mit "#" aufgerufen wurde
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById('page-' + hash)) {
+                navTo(hash, false);
+                history.replaceState({ pageId: hash }, "", "#" + hash);
+            } else {
+                history.replaceState({ pageId: 'home' }, "", "#home");
+            }
+        });
 
         function moveSlide(sliderId, step) {
             const track = document.getElementById(sliderId);
