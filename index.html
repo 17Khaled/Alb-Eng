@@ -20,6 +20,7 @@
     <link rel="icon" type="image/png" href="ICON_LOGO_NEU_2026.png">
     <link rel="apple-touch-icon" href="ICON_LOGO_NEU_2026.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         /* CSS VARIABLEN FÜR DARK & LIGHT MODE */
@@ -345,35 +346,35 @@
         </section>
 
         <section id="page-about" class="page-section content-padding">
-            <h2 class="section-title" id="abo-title">Über <span>uns</span></h2>
+            <h2 class="section-title" id="abo-title" data-aos="fade-up">Über <span>uns</span></h2>
             <div class="about-wrapper">
                 <div class="about-text" id="abo-text">
                     <p>Wir sind ein spezialisiertes Ingenieurbüro mit Standorten in Berlin, Ulm und Idlib. Unser Fokus liegt auf zukunftsweisender Technischer Gebäudeausrüstung und nachhaltigen Energiekonzepten.</p>
                     <p>Unser Antrieb ist die aktive Mitgestaltung einer effizienten Zukunft im Bauwesen. Durch modernste Planungsmethoden sichern wir eine reibungslose Ausführung komplexer Projekte ab der ersten Leistungsphase.</p>
                 </div>
                 <div class="metrics-grid">
-                    <div class="metric-card"><h2>3</h2><p id="m1">Internationale Standorte</p></div>
-                    <div class="metric-card"><h2>100%</h2><p id="m2">Digitale Planung</p></div>
-                    <div class="metric-card"><h2>BIM</h2><p id="m3">3D-Modellierung</p></div>
-                    <div class="metric-card"><h2>TGA</h2><p id="m4">Vollständige Expertise</p></div>
+                    <div class="metric-card" data-aos="fade-up" data-aos-delay="0"><h2>3</h2><p id="m1">Internationale Standorte</p></div>
+                    <div class="metric-card" data-aos="fade-up" data-aos-delay="150"><h2>100%</h2><p id="m2">Digitale Planung</p></div>
+                    <div class="metric-card" data-aos="fade-up" data-aos-delay="300"><h2>BIM</h2><p id="m3">3D-Modellierung</p></div>
+                    <div class="metric-card" data-aos="fade-up" data-aos-delay="450"><h2>TGA</h2><p id="m4">Vollständige Expertise</p></div>
                 </div>
             </div>
         </section>
 
         <section id="page-expertise" class="page-section content-padding">
-            <h2 class="section-title" id="exp-title">Unsere <span>Leistungen</span></h2>
+            <h2 class="section-title" id="exp-title" data-aos="fade-up">Unsere <span>Leistungen</span></h2>
             <div class="grid-container" id="services-grid"></div>
         </section>
 
         <section id="page-references" class="page-section content-padding">
-            <h2 class="section-title" id="ref-title">Aktuelle <span>Projekte</span></h2>
+            <h2 class="section-title" id="ref-title" data-aos="fade-up">Aktuelle <span>Projekte</span></h2>
             <div class="grid-container" id="projects-list"></div>
         </section>
 
         <section id="page-career" class="page-section content-padding">
             <div class="career-wrapper">
                 <div>
-                    <h2 class="section-title" id="car-title">Werde Teil des <span>Teams</span></h2>
+                    <h2 class="section-title" id="car-title" data-aos="fade-up">Werde Teil des <span>Teams</span></h2>
                     <p id="car-text" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8;">Wir suchen ambitionierte TGA-Ingenieure, Meister und Systemplaner. Keine starren Hierarchien, sondern Raum für technische Exzellenz.</p>
                     <button class="btn-primary" id="car-btn" onclick="navTo('contact')">Jetzt bewerben</button>
                 </div>
@@ -386,7 +387,7 @@
         <section id="page-contact" class="page-section content-padding">
             <div class="contact-wrapper">
                 <div class="contact-info">
-                    <h2 id="con-title">Kontakt</h2>
+                    <h2 id="con-title" data-aos="fade-up">Kontakt</h2>
                     <p id="con-text">Lassen Sie uns über Ihr nächstes Projekt sprechen.</p>
                     <p style="color: var(--accent-green); margin-top: 30px; font-weight: 600;">info@alb-eng.de</p>
                 </div>
@@ -744,5 +745,16 @@
         setLang('de');
     </script>
     <script src="//code.tidio.co/gb430nzy7zmleedbmbeibw12d7dpaahy.js" async></script>
+    <!-- AOS Script laden -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- AOS Motor starten -->
+<script>
+  AOS.init({
+    duration: 800,       
+    once: true,          
+    offset: 120          
+  });
+</script>
 </body>
 </html>
