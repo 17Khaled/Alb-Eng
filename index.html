@@ -124,14 +124,32 @@
         .logo-img { height: 60px; object-fit: contain; cursor: pointer; }
 
         .nav-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+/* PREMIUM HOVER-LINIE FÜR NAVIGATION */
         .nav-links button {
             background: none; border: none; color: var(--text-muted); font-size: 0.9rem; 
             text-transform: uppercase; letter-spacing: 1px; font-weight: 600; 
-            cursor: pointer; transition: color 0.4s ease, transform 0.4s ease; padding: 5px;
+            cursor: pointer; padding: 5px; position: relative; /* Wichtig für die Linie */
+            transition: color 0.3s ease;
         }
-        .nav-links button:hover, .nav-links button.active { 
+        /* Die unsichtbare Linie unterm Text vorbereiten */
+        .nav-links button::after {
+            content: '';
+            position: absolute;
+            width: 0; /* Am Anfang ist die Linie 0% breit */
+            height: 2px; /* Dicke der Linie */
+            bottom: -2px; /* Abstand zum Text */
+            left: 0; /* Linie startet links */
+            background-color: var(--accent-green);
+            transition: width 0.3s ease-in-out; /* Das macht die Bewegung smooth */
+        }
+        /* Beim Drüberfahren (Hover) oder wenn aktiv: Linie auf 100% Breite ziehen */
+        .nav-links button:hover, 
+        .nav-links button.active { 
             color: var(--accent-green); 
-            transform: translateY(-2px);
+        }
+        .nav-links button:hover::after, 
+        .nav-links button.active::after {
+            width: 100%;
         }
 
         .nav-controls { display: flex; align-items: center; gap: 15px; }
@@ -464,7 +482,7 @@
                 <div class="contact-info">
                     <h2 id="con-title" data-aos="fade-up">Kontakt</h2>
                     <p id="con-text">Lassen Sie uns über Ihr nächstes Projekt sprechen.</p>
-                    <p style="color: var(--accent-green); margin-top: 30px; font-weight: 600;">info@alb-eng.de</p>
+                    <p style="margin-top: 30px; font-weight: 600;"><a href="mailto:info@alb-eng.de" style="color: var(--accent-green); text-decoration: none;">info@alb-eng.de</a></p>
                 </div>
                 <div>
                     <form action="https://formsubmit.co/info@alb-eng.de" method="POST" class="contact-form">
@@ -505,7 +523,7 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-logo">
-                <img src="LOGO_NEU_2026.png" alt="Logo">
+                <img src="LOGO_NEU_2026.png" alt="Logo" style="cursor: pointer;" onclick="navTo('home')">
                 <p id="foot-desc">Ingenieurbüro für Technische Gebäudeausrüstung.</p>
             </div>
             <div class="footer-col">
