@@ -310,6 +310,54 @@
                 font-size: 1.05rem;
             }
         }
+        /* TECH-STACK ENDLOS-TICKER */
+        .tech-ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 25px 0;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .tech-ticker {
+            display: flex;
+            width: max-content;
+            animation: ticker 40s linear infinite;
+        }
+        .tech-ticker:hover {
+            animation-play-state: paused; /* Stoppt, wenn man mit der Maus drübergeht */
+        }
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+        .tech-item:hover {
+            color: var(--accent-green);
+        }
+        /* Falls du später echte Logos (Bilder) einfügst, macht dieser Code sie grau und beim Hovern farbig */
+        .tech-item img {
+            height: 35px;
+            filter: grayscale(100%) opacity(0.7);
+            transition: all 0.3s ease;
+        }
+        .tech-item:hover img {
+            filter: grayscale(0%) opacity(1);
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
     </style>
 </head>
 <body>
@@ -342,6 +390,33 @@
                 <h1 id="hero-title">Engineering der<br><span>nächsten Generation.</span></h1>
                 <p id="hero-desc">Hocheffiziente Gebäude- und Energietechnik ohne Kompromisse. Digitale Fachplanung für das moderne Bauwesen.</p>
                 <button class="btn-primary" id="hero-btn" onclick="navTo('contact')">Projekt anfragen</button>
+            </div>
+            <div class="tech-ticker-wrap" data-aos="fade-up" data-aos-delay="200">
+                <div class="tech-ticker">
+                    <div class="tech-item">🟦 Energie-Effizienz-Experte</div>
+                    <div class="tech-item">⚙️ VDI Mitglied</div>
+                    <div class="tech-item">📐 Autodesk Revit</div>
+                    <div class="tech-item">📏 AutoCAD MEP</div>
+                    <div class="tech-item">🛠️ liNear</div>
+                    <div class="tech-item">💧 Dendrit Studio</div>
+                    <div class="tech-item">🔥 Hottgenroth</div>
+                    <div class="tech-item">🔍 Navisworks</div>
+                    <div class="tech-item">👁️ BIM Vision</div>
+                    <div class="tech-item">☁️ Microsoft 365</div>
+                    <div class="tech-item">📖 LibreOffice</div>
+                    
+                    <div class="tech-item">🟦 Energie-Effizienz-Experte</div>
+                    <div class="tech-item">⚙️ VDI Mitglied</div>
+                    <div class="tech-item">📐 Autodesk Revit</div>
+                    <div class="tech-item">📏 AutoCAD MEP</div>
+                    <div class="tech-item">🛠️ liNear</div>
+                    <div class="tech-item">💧 Dendrit Studio</div>
+                    <div class="tech-item">🔥 Hottgenroth</div>
+                    <div class="tech-item">🔍 Navisworks</div>
+                    <div class="tech-item">👁️ BIM Vision</div>
+                    <div class="tech-item">☁️ Microsoft 365</div>
+                    <div class="tech-item">📖 LibreOffice</div>
+                </div>
             </div>
         </section>
 
